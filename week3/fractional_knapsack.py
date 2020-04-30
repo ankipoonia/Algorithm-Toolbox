@@ -7,9 +7,9 @@ def get_optimal_value(capacity, weights, values):
 
     vperw.sort(key = lambda x: x[1])
     j = len(vperw)
-    while capacity>0:
+    while capacity>0 and j>0:
         j = j - 1
-        if weights[vperw[j][0]]<=capacity:
+        if weights[vperw[j][0]]>=capacity:
             value = value + capacity*vperw[j][1]
             capacity = 0
         else:
