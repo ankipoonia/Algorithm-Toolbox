@@ -1,6 +1,4 @@
 # Uses python3
-import sys
-
 def get_optimal_value(capacity, weights, values):
     value = 0.
     vperw = []
@@ -22,9 +20,14 @@ def get_optimal_value(capacity, weights, values):
 
 
 if __name__ == "__main__":
-    data = list(map(int, sys.stdin.read().split()))
-    n, capacity = data[0:2]
-    values = data[2:(2 * n + 2):2]
-    weights = data[3:(2 * n + 2):2]
+    n, capacity = input().split()
+    n, capacity = int(n), int(capacity)
+    values = []
+    weights = []
+    for i in range(0,n):
+        v,w = input().split()
+        v,w = int(v), int(w)
+        values.append(v)
+        weights.append(w)
     opt_value = get_optimal_value(capacity, weights, values)
     print("{:.10f}".format(opt_value))
